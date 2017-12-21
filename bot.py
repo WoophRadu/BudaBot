@@ -1,16 +1,12 @@
 import discord
 import random
 from discord.ext import commands
+import keywords_dict
 
 description = '''Puns by Cristian Dragan Buda.'''
 bot = commands.Bot(command_prefix='#', description=description)
 
-kwords={
-    "dragan": "bine men",
-    "irimus": "ew wtf",
-    "ok": "ok, mai bine doua chei",
-    "dezintegrez": "dezintegrez, bine ca nu dez-char-egrez"
-}
+kwords = keywords_dict.kwords
 
 nextPun=""
 
