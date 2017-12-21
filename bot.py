@@ -17,7 +17,7 @@ logging.basicConfig(format='[%(levelname)s @ %(asctime)s] %(message)s', level=lo
 
 @bot.event
 async def on_ready():
-    logger("@CristiBot#8055 initialized. Logging in...")
+    logger("@BudaBot#8055 initialized. Logging in...")
     logger('Logged in as ' + bot.user.name + ' with ID [' + bot.user.id + '] on:')
     for sv in bot.servers:
         logger('\t[' + str(sv.id) + '] ' + str(sv.name))
