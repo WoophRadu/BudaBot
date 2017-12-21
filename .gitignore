@@ -56,3 +56,10 @@ docs/_build/
 
 # PyBuilder
 target/
+/token.dat
+.idea/BudaBot.iml
+.idea/markdown-navigator/
+.idea/misc.xml
+.idea/modules.xml
+.idea/workspace.xml
+token.dat
