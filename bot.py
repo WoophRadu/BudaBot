@@ -13,6 +13,8 @@ nextPun=""
 
 loopN=0
 
+antigushaMode=False
+
 logging.basicConfig(format='[%(levelname)s @ %(asctime)s] %(message)s', level=logging.INFO, datefmt='%Y-%m-%d %I:%M:%S %p', filename='bot.log')
 
 @bot.event
@@ -28,6 +30,28 @@ async def on_ready():
         loopN = loopN +1
         message = await bot.wait_for_message(check=check_message)
         await bot.send_message(message.channel, nextPun)
+
+@bot.command(pass_context=True)
+async def antigusha(ctx):
+    global antigushaMode
+    if not ctx.message.author.id == "177775499244863488":
+        if not antigushaMode:
+            antigushaMode = True
+            await bot.delete_message(ctx.message)
+        else:
+            antigushaMode = False
+            await bot.delete_message(ctx.message)
+    else:
+        await bot.send_message(ctx.message.channel, "Ai vrea tu, gusha proasta")
+
+
+@bot.event
+async def on_message(message):
+    if message.author.id == "177775499244863488" and antigushaMode:
+        print("\n\n TRUE \n\n")
+        await bot.delete_message(message)
+        await bot.send_message(message.channel, "Iara te bagi, gusha proasta?")
+    await bot.process_commands(message)
 
 def check_message(msg:discord.Message=None):
     global nextPun
