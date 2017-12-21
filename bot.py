@@ -27,7 +27,7 @@ async def on_ready():
     await bot.change_presence(game=discord.Game(name="DUME PROASTE"))
     while True:
         global loopN
-        logger("While loop: " + loopN)
+        logger("While loop: " + str(loopN))
         loopN = loopN +1
         message = await bot.wait_for_message(check=check_message)
         await bot.send_message(message.channel, nextPun)
