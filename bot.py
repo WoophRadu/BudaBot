@@ -27,7 +27,7 @@ async def on_ready():
     await bot.change_presence(game=discord.Game(name="DUME PROASTE"))
     while True:
         global loopN
-        print("\nloop " + str(loopN) + "\n")
+        logger("While loop: " + loopN)
         loopN = loopN +1
         message = await bot.wait_for_message(check=check_message)
         await bot.send_message(message.channel, nextPun)
@@ -53,7 +53,6 @@ async def antigusha(ctx):
 @bot.event
 async def on_message(message):
     if message.author.id == "177775499244863488" and antigushaMode:
-        print("\n\n TRUE \n\n")
         await bot.delete_message(message)
         await bot.send_message(message.channel, "Iara te bagi, gusha proasta?")
     await bot.process_commands(message)
@@ -61,7 +60,6 @@ async def on_message(message):
 def check_message(msg:discord.Message=None):
     global nextPun
     for x in kwords.keys():
-        print(x)
         y = msg.content.find(x)
         if y != -1:
             nextPun = kwords[x]
