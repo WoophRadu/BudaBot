@@ -24,6 +24,7 @@ async def on_ready():
     for sv in bot.servers:
         logger('\t[' + str(sv.id) + '] ' + str(sv.name))
     logger('\n')
+    await bot.change_presence(game=discord.Game(name="DUME PROASTE"))
     while True:
         global loopN
         print("\nloop " + str(loopN) + "\n")
@@ -38,9 +39,13 @@ async def antigusha(ctx):
         if not antigushaMode:
             antigushaMode = True
             await bot.delete_message(ctx.message)
+            await bot.change_presence(game=discord.Game(name="ANTI GUSHA MODE"))
+            logger("AntigushaMode enabled.")
         else:
             antigushaMode = False
             await bot.delete_message(ctx.message)
+            await bot.change_presence(game=discord.Game(name="DUME PROASTE"))
+            logger("AntigushaMode disabled.")
     else:
         await bot.send_message(ctx.message.channel, "Ai vrea tu, gusha proasta")
 
