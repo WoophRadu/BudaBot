@@ -45,11 +45,6 @@ except:
     logger.log("Something wrong with the config. If you crash, delete it so we can regenerate it.", "error")
 
 logging.Logger.setLevel(logging.getLogger(),loglevel)
-logger.log("text", "debug")
-logger.log("text")
-logger.log("text", "warning")
-logger.log("text", "error")
-logger.log("text", "critical")
 
 description = '''Puns by Cristian Dragan Buda.'''
 bot = commands.Bot(command_prefix='#', description=description)
